@@ -24,6 +24,9 @@ def status():
     else: return 'off'
 
 @app.route("/")
+@app.route("/sitemap")
+@app.route("/sitemap/")
+@app.route("/sitemap.xml")
 def sitemap():
     """
         Route to dynamically generate a sitemap of your website/application.
