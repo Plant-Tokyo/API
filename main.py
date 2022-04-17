@@ -23,7 +23,6 @@ def stop():
 @app.route('/status')
 def status():
     global status
-    status = False
     if status: return 'on'
     else: return 'off'
 
