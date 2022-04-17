@@ -6,7 +6,7 @@ status = False
 
 @app.route('/')
 def main():
-    return app.url_map
+    return str(app.url_map)
 
 @app.route('/start')
 def start():
@@ -26,6 +26,6 @@ def status():
     status = False
     if status: return 'on'
     else: return 'off'
-    
+
 
 app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
