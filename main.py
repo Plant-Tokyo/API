@@ -24,8 +24,7 @@ def status():
     if status: return 'on'
     else: return 'off'
 
-from flask import Flask, request, send_from_directory
-+PHUB
+
 @app.route('/')
 @app.route('/sitemap.xml')
 def static_from_root():
