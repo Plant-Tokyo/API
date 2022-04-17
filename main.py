@@ -2,7 +2,7 @@ import flask, os
 
 app = flask.Flask(__name__)
 global status
-status = True
+status = False
 
 @app.route('/start')
 def start():
