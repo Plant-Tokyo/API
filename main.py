@@ -4,6 +4,10 @@ app = flask.Flask(__name__)
 global status
 status = False
 
+@app.route('/')
+def main():
+    return app.url_map
+
 @app.route('/start')
 def start():
     global status
