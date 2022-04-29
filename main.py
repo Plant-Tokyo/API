@@ -20,6 +20,10 @@ def stop():
     status = False
     return 'stopped'
 
+@app.route('/water/<seconds>')
+def water(seconds=5):
+    return ('Watering for ' +str(seconds) + ' seconds!')
+
 @app.route('/status')
 def status():
     global status
