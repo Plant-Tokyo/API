@@ -15,7 +15,7 @@ def input(passw, data):
 @app.route('/data', methods = ['POST','GET'])
 def data():
     with open("data.txt", "r") as f:
-        return str(f.read() + ' ' + str(status))
+        return str(f.read())
 
 @app.route('/', methods = ['POST','GET'])
 def main():
