@@ -10,7 +10,7 @@ def input(passw, data):
     print(status)
     if passw == '3645':
         with open('data.txt', 'w+') as f: f.write(data)
-        return 'dwrite'
+        return 'ddwrite'
 
 @app.route('/data', methods = ['POST','GET'])
 def data():
