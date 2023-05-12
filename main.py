@@ -5,7 +5,7 @@ global data
 data = ''
 
 @app.route('/input/<passw>/<data>', methods = ['POST','GET'])
-def input(passw, data):r
+def input(passw, data):
     if passw == '3645':
         with open('data.txt', 'w+') as f: f.write(data)
         return 'ddwrite'
