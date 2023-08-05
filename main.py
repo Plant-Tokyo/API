@@ -1,22 +1,22 @@
-import flask, os
+import flask, os, csv
 
 app = flask.Flask(__name__)
-global data
-data = ''
 
-@app.route('/input/<passw>/<data>', methods = ['POST','GET'])
-def input(passw, data):
+@app.route('/input/<passw>/<id>/<data>')
+def input(passw, id, data):
     if passw == '3645':
-        with open('data.txt', 'w+') as f: f.write(data)
+        with open(f'{id}.csv', 'w+', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow([data])
         return 'ddwrite'
 
-@app.route('/data', methods = ['POST','GET'])
-def data():
-    with open("data.txt", "r") as f:
-        return str(f.read())
+@app.route('/data/<id>')
+def data(id):
+    with open(f"{id}.csv", "r") as file:
+        reader = csv.reader(file)
+        data_list = list(reader)
+        return str(data_list)
 
-@app.route('/', methods = ['POST','GET'])
+@app.route('/')
 def main():
     return str(app.url_map)
-
-app.run(host='0.0.0.0', port=os.environ.get('PORT', 5000))
